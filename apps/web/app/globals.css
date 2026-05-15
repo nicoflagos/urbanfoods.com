@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-500: 31 138 59;
+  --accent-500: 249 115 22;
+}
+
+html,
+body {
+  height: 100%;
+}
+
