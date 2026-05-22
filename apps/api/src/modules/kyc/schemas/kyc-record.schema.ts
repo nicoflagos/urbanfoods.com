@@ -9,7 +9,7 @@ export class KycRecord {
   @Prop({ type: Types.ObjectId, ref: "User", required: true, unique: true })
   userId!: Types.ObjectId;
 
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   customerType!: "INDIVIDUAL" | "BUSINESS";
 
   @Prop({ type: Object, required: true })
@@ -18,13 +18,12 @@ export class KycRecord {
   @Prop({ type: [String], default: [] })
   documents!: string[];
 
-  @Prop({ required: true, default: "PENDING" })
+  @Prop({ type: String, required: true, default: "PENDING" })
   status!: KycStatus;
 
-  @Prop()
+  @Prop({ type: String })
   rejectionReason?: string;
 }
 
 export const KycRecordSchema = SchemaFactory.createForClass(KycRecord);
 KycRecordSchema.index({ userId: 1 }, { unique: true });
-

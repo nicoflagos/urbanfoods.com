@@ -9,33 +9,34 @@ export class OrderItem {
   @Prop({ type: Types.ObjectId, ref: "Product", required: true })
   productId!: Types.ObjectId;
 
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   name!: string;
 
-  @Prop({ required: true })
+  @Prop({ type: Number, required: true })
   unitPrice!: number;
 
-  @Prop({ required: true })
+  @Prop({ type: Number, required: true })
   quantity!: number;
 }
+
+export const OrderItemSchema = SchemaFactory.createForClass(OrderItem);
 
 @Schema({ timestamps: true })
 export class Order {
   @Prop({ type: Types.ObjectId, ref: "User", required: true })
   userId!: Types.ObjectId;
 
-  @Prop({ type: [OrderItem], required: true })
+  @Prop({ type: [OrderItemSchema], required: true })
   items!: OrderItem[];
 
-  @Prop({ required: true })
+  @Prop({ type: Number, required: true })
   total!: number;
 
-  @Prop({ required: true, default: "PENDING" })
+  @Prop({ type: String, required: true, default: "PENDING" })
   status!: OrderStatus;
 
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   deliveryAddress!: string;
 }
 
 export const OrderSchema = SchemaFactory.createForClass(Order);
-
