@@ -26,4 +26,3 @@ export class KycRecord {
 }
 
 export const KycRecordSchema = SchemaFactory.createForClass(KycRecord);
-KycRecordSchema.index({ userId: 1 }, { unique: true });

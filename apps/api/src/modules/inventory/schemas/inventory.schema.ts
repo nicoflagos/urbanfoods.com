@@ -19,4 +19,3 @@ export class Inventory {
 }
 
 export const InventorySchema = SchemaFactory.createForClass(Inventory);
-InventorySchema.index({ productId: 1 }, { unique: true });
